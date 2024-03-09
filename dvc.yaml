@@ -1,0 +1,11 @@
+stages:
+  prepare:
+    cmd: python ml_project/preprocessing/preprocess.py
+    deps:
+    - data/bbc-text.csv
+    - ml_project/preprocessing/dataset.py
+    - ml_project/preprocessing/preprocess.py
+    params:
+    - split
+    outs:
+    - data/datasets.pkl

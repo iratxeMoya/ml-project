@@ -1,0 +1,28 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python ml_project/preprocessing/preprocess.py
+    deps:
+    - path: data/bbc-text.csv
+      hash: md5
+      md5: f9fbdf2d83a17f0e09ddc33c56816ed1
+      size: 5057493
+    - path: ml_project/preprocessing/dataset.py
+      hash: md5
+      md5: 561dce62ede65dd4a5b2e17d19b23b07
+      size: 1082
+    - path: ml_project/preprocessing/preprocess.py
+      hash: md5
+      md5: b96377562d5b50bff82ee8d65271edbe
+      size: 1280
+    params:
+      params.yaml:
+        split:
+          train: 0.8
+          test: 0.1
+          eval: 0.1
+    outs:
+    - path: data/datasets.pkl
+      hash: md5
+      md5: 0cadaa35521e67b1d43eff653e0eece4
+      size: 31193944
