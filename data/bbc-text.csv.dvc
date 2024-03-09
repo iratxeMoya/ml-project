@@ -1,0 +1,5 @@
+outs:
+- md5: f9fbdf2d83a17f0e09ddc33c56816ed1
+  size: 5057493
+  hash: md5
+  path: bbc-text.csv
