@@ -9,3 +9,13 @@ stages:
     - split
     outs:
     - data/datasets.pkl
+  train:
+    cmd: python ml_project/training/train.py
+    deps:
+    - data/datasets.pkl
+    - ml_project/training/
+    - ml_project/utils/plots.py
+    params:
+    - train
+    outs:
+    - models/model.pth

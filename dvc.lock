@@ -9,8 +9,8 @@ stages:
       size: 5057493
     - path: ml_project/preprocessing/dataset.py
       hash: md5
-      md5: 561dce62ede65dd4a5b2e17d19b23b07
-      size: 1082
+      md5: 94b4adebfb8f9728f823c1bfe50904b3
+      size: 1106
     - path: ml_project/preprocessing/preprocess.py
       hash: md5
       md5: b96377562d5b50bff82ee8d65271edbe
@@ -24,5 +24,33 @@ stages:
     outs:
     - path: data/datasets.pkl
       hash: md5
-      md5: 0cadaa35521e67b1d43eff653e0eece4
+      md5: a5698fe81c290eb0159f552ec9370e18
       size: 31193944
+  train:
+    cmd: python ml_project/training/train.py
+    deps:
+    - path: data/datasets.pkl
+      hash: md5
+      md5: a5698fe81c290eb0159f552ec9370e18
+      size: 31193944
+    - path: ml_project/training/
+      hash: md5
+      md5: 346a43bca566848fe51d5184aae6cae0.dir
+      size: 5725
+      nfiles: 4
+    - path: ml_project/utils/plots.py
+      hash: md5
+      md5: 30d57047f405a9ad813d46c32c26705e
+      size: 698
+    params:
+      params.yaml:
+        train:
+          dropout: 0.5
+          epochs: 5
+          lr: 1e-06
+          batch_size: 6
+    outs:
+    - path: models/model.pth
+      hash: md5
+      md5: 4544064ec572b00d5e5d3e92dc6ac990
+      size: 433368190
